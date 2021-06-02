@@ -12,11 +12,11 @@ I am fairly new in GoLang :) and this is the best I can come up with.
 
 - This will install `rediswork` in your system and hopefully it will work
 
-`go install github.com/mudasirmirza/rediswork`
+`go install github.com/dhruv-paystack/rediswork`
 
 - To fetch source of the tool
 
-`go get github.com/mudasirmirza/rediswork`
+`go get github.com/dhruv-paystack/rediswork`
 
 ---
 

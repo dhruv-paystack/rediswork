@@ -148,15 +148,15 @@ func copyKey(s *redis.Client, d *redis.Client, ch <-chan []string, t time.Time, 
 			// variable to store key data fetched from redis
 			var data string
 
-			//var ttl time.Duration = 0 * time.Millisecond
+			var ttl time.Duration = 0 * time.Millisecond
 			
 			data = s.Dump(v).Val()
 			// TODO: optimize copying TTL, currently taking allot of time and resources
-			//ttl = s.PTTL(v).Val()
-			// ttl -1ms is not allowed in restore
-			//if ttl == td {
-				//ttl = time.Millisecond * 0
-			//}
+			ttl = s.PTTL(v).Val()
+			ttl -1ms is not allowed in restore
+			if ttl == td {
+				ttl = time.Millisecond * 0
+			}
 
 			// restore on destination
 			pd.Restore(v, ttl, data)
